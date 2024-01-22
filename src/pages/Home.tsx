@@ -1,0 +1,12 @@
+import React, { FC } from 'react'
+import Header from '../Components/Header/Header'
+
+const Home: FC = () => {
+  return (
+    <div>
+      <Header />
+    </div>
+  )
+}
+
+export default Home
