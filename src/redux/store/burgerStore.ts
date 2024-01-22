@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import burger from '../burgerSlice'
+import burgerSlice from '../burgerSlice'
+import filterSlice from '../filterSlice'
 
 export const store = configureStore({
   reducer: {
-    burger,
+    burgerSlice,
+    filterSlice,
   },
 })
 

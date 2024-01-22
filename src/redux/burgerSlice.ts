@@ -5,12 +5,24 @@ import axios from 'axios'
 export interface CounterState {
   value: 0
   incrementAmount: number
+  // items: [
+  //   { id: number; title: string; desc: string; price: string; photo: string }
+  // ]
   items: []
   status: string
 }
 
 const initialState: CounterState = {
-  items: [],
+  items: [
+    // {
+    //   id: 1,
+    //   title: 'Грибной Чикен',
+    //   desc: 'Большая булочка, куриное филе в панировке, жареные шампиньоны, хрустящий лук, салат Айсберг, устричный соус',
+    //   price: '280 руб',
+    //   photo:
+    //     'https://vkusnotochkamenu.ru/image/cache/catalog/photo/101182378-chiken-hit-gribnoj-600x600.png',
+    // },
+  ],
   status: 'loading',
   value: 0,
   incrementAmount: 1,

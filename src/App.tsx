@@ -6,14 +6,11 @@ import './App.css'
 import Home from './pages/Home'
 
 const App: FC = () => {
-  const { items } = useSelector((state: RootState) => state.burger)
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     dispatch(fetchBurger())
   }, [])
-
-  console.log(items)
 
   return (
     <div className="App">
