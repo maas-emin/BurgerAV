@@ -2,27 +2,23 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import axios from 'axios'
 
+type ItemsType = {
+  id: number
+  title: string
+  desc: string
+  price: number
+  photo: string
+}
+
 export interface CounterState {
   value: 0
   incrementAmount: number
-  // items: [
-  //   { id: number; title: string; desc: string; price: string; photo: string }
-  // ]
-  items: []
+  items: ItemsType[]
   status: string
 }
 
 const initialState: CounterState = {
-  items: [
-    // {
-    //   id: 1,
-    //   title: 'Грибной Чикен',
-    //   desc: 'Большая булочка, куриное филе в панировке, жареные шампиньоны, хрустящий лук, салат Айсберг, устричный соус',
-    //   price: '280 руб',
-    //   photo:
-    //     'https://vkusnotochkamenu.ru/image/cache/catalog/photo/101182378-chiken-hit-gribnoj-600x600.png',
-    // },
-  ],
+  items: [],
   status: 'loading',
   value: 0,
   incrementAmount: 1,
@@ -35,20 +31,10 @@ export const fetchBurger = createAsyncThunk('burger/fetchBurger', async () => {
   return data
 })
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const burgerSlice = createSlice({
+  name: 'burger',
   initialState,
-  reducers: {
-    increment: (state, action) => {
-      state.value += action.payload
-    },
-    decrement: (state) => {
-      state.value -= state.incrementAmount
-    },
-    changeIncrementAmount: (state, action: PayloadAction<any>) => {
-      state.incrementAmount = action.payload
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchBurger.pending, (state) => {
       state.status = 'loading'
@@ -65,7 +51,6 @@ export const counterSlice = createSlice({
   },
 })
 
-export const { increment, decrement, changeIncrementAmount } =
-  counterSlice.actions
+export const {} = burgerSlice.actions
 
-export default counterSlice.reducer
+export default burgerSlice.reducer

@@ -6,12 +6,22 @@ import { RootState } from '../redux/store/burgerStore'
 import { setCategoryId } from '../redux/filterSlice'
 import s from './Home.module.css'
 import Burgers from '../Components/BurgerBlock/Burgers'
+import SceletonBurger from '../Components/BurgerBlock/SceletonBurger'
+import { error } from 'console'
+
+type BurgersType = {
+  id: number
+  title: string
+  desc: string
+  price: number
+  photo: string
+}
 
 const Home: FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Бургеры')
 
   const { categoryId } = useSelector((state: RootState) => state.filterSlice)
-  const { items } = useSelector((state: RootState) => state.burgerSlice)
+  const { items, status } = useSelector((state: RootState) => state.burgerSlice)
 
   const dispatch = useDispatch()
 
@@ -20,25 +30,28 @@ const Home: FC = () => {
     setActiveCategory(item)
   }
 
+  const scletons = [...new Array(5)].map((_, index) => {
+    return <SceletonBurger key={index} />
+  })
+
+  const burgers = items.map((item: BurgersType) => {
+    return <Burgers {...item} key={item.title} />
+  })
+
   return (
-    <div>
+    <div className={s.content__menu}>
       <Header />
       <Menu
         value={categoryId}
         setCategory={(item: string, index: number) => setCategory(item, index)}
       />
       <h2 className={s.content__title}>{activeCategory}</h2>
-      {items.map(
-        (item: {
-          id: number
-          title: string
-          desc: string
-          price: string
-          photo: string
-        }) => {
-          return <Burgers {...item} key={item.title} />
-        }
+      {status === 'error' && (
+        <h2 className={s.h2}>ОШИБКА: провертье подключение к интернету</h2>
       )}
+      <div className={s.content__items}>
+        {status === 'loading' ? scletons : burgers}
+      </div>
     </div>
   )
 }

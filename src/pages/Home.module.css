@@ -1,9 +1,21 @@
+.content__menu {
+  width: 1400px;
+  background-color: #fff;
+}
+
+.content__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 20px;
+}
+
 .content__title {
   font-weight: 800;
   font-size: 38px;
   margin-top: 60px;
   margin-bottom: 50px;
   background-color: #fff;
-  margin: 0;
   border-top: 1px solid #f6f6f6;
 }
