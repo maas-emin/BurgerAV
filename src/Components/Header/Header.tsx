@@ -1,7 +1,12 @@
 import React, { FC } from 'react'
 import s from './Header.module.css'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store/burgerStore'
 
 const Header: FC = () => {
+  const { totalPrice, totalCount } = useSelector(
+    (state: RootState) => state.cartSlice
+  )
   return (
     <>
       <div className={s.header}>
@@ -19,7 +24,7 @@ const Header: FC = () => {
             </div>
           </div>
           <div className={s.corzina}>
-            <span className={s.totlaPrice}>444</span>
+            <span className={s.totlaPrice}>{totalPrice}</span>
             <svg
               className={s.iconCorzina}
               width="18"
@@ -50,7 +55,7 @@ const Header: FC = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className={s.countBurger}>10</span>
+            <span className={s.countBurger}>{totalCount}</span>
           </div>
         </div>
       </div>

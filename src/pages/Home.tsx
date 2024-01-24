@@ -1,17 +1,17 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import Header from '../Components/Header/Header'
 import Menu from '../Components/Menu/Menu'
 import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../redux/store/burgerStore'
+import { AppDispatch, RootState } from '../redux/store/burgerStore'
 import { setCategoryId } from '../redux/filterSlice'
 import s from './Home.module.css'
 import Burgers from '../Components/BurgerBlock/Burgers'
 import SceletonBurger from '../Components/BurgerBlock/SceletonBurger'
-import { error } from 'console'
 
 type BurgersType = {
   id: number
   title: string
+  name: string
   desc: string
   price: number
   photo: string

@@ -4,6 +4,7 @@ import { stat } from 'fs'
 export type CartSliceType = {
   id: number
   title: string
+  name: string
   desc: string
   price: number
   photo: string
@@ -12,12 +13,14 @@ export type CartSliceType = {
 
 export interface CartSliceInterface {
   items: CartSliceType[]
-  totalPrice: any
+  totalPrice: number
+  totalCount: number
 }
 
 const initialState: CartSliceInterface = {
   items: [],
   totalPrice: 0,
+  totalCount: 0,
 }
 
 export const cartSlice = createSlice({
@@ -32,7 +35,13 @@ export const cartSlice = createSlice({
         state.items.push({ ...action.payload, count: 1 })
       }
 
-      state.totalPrice = state.items
+      state.totalPrice = state.items.reduce((acc, c) => {
+        return acc * c.count + c.price
+      }, 0)
+
+      state.totalCount = state.items.reduce((acc, c) => {
+        return acc + c.count
+      }, 0)
     },
   },
 })

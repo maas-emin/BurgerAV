@@ -8,33 +8,24 @@ import { RootState } from '../../redux/store/burgerStore'
 type BurgerType = {
   id: number
   title: string
+  name: string
   desc: string
   price: number
   photo: string
 }
 
-const Burgers: FC<BurgerType> = ({ id, title, desc, price, photo }) => {
+const Burgers: FC<BurgerType> = ({ id, desc, title, name, price, photo }) => {
   const { items, totalPrice } = useSelector(
     (state: RootState) => state.cartSlice
   )
   const dispatch = useDispatch()
-
-  const arr = items.map((item) => {
-    return item.count > 1 ? item.price * item.count : item.price
-  })
-
-  if (arr) {
-    let result = arr.reduce((acc, a) => {
-      return acc + a
-    }, 0)
-    console.log(result)
-  }
 
   const getitemsCount = items.find((item) => item.id === id)
 
   const onClickAdd = () => {
     const item: CartSliceType = {
       id,
+      name,
       title,
       desc,
       price,
@@ -48,34 +39,6 @@ const Burgers: FC<BurgerType> = ({ id, title, desc, price, photo }) => {
       <div className={s.burger_block}>
         <img className={s.burger_block__image} src={photo} alt="Pizza" />
         <h4 className={s.burger_block__title}>{title}</h4>
-        {/* <div className={s.burger_lock__selector}>
-            <ul>
-              {types.map((type, index) => {
-                return (
-                  <li
-                    onClick={() => setActiveType(index)}
-                    key={type}
-                    className={type === activeType ? 'active' : ''}
-                  >
-                    {typeNames[type]}
-                  </li>
-                )
-              })}
-            </ul>
-            <ul>
-              {sizes.map((size, index) => {
-              return (
-                <li
-                  onClick={() => setActiveSize(index)}
-                  key={index}
-                  className={index === activeSize ? 'active' : ''}
-                >
-                  {size}см.
-                </li>
-              )
-            })}
-            </ul>
-          </div> */}
         <div className={s.burger_block__bottom}>
           <div className={s.burger_block__price}>{price} ₽</div>
           <button className={s.button_button__outline} onClick={onClickAdd}>

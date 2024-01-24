@@ -2,9 +2,14 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import axios from 'axios'
 
+type FetchByrgersArgs = {
+  category: string
+}
+
 type ItemsType = {
   id: number
   title: string
+  name: string
   desc: string
   price: number
   photo: string
@@ -25,8 +30,11 @@ const initialState: CounterState = {
 }
 
 export const fetchBurger = createAsyncThunk('burger/fetchBurger', async () => {
+  // const { category } = params
+  // console.log(category)
   const { data } = await axios.get(
-    'https://65a92a6b219bfa371868a40d.mockapi.io/items'
+    `https://65a92a6b219bfa371868a40d.mockapi.io/items?search=Бургеры
+    `
   )
   return data
 })
