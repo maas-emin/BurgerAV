@@ -7,6 +7,7 @@ import { setCategoryId } from '../redux/filterSlice'
 import s from './Home.module.css'
 import Burgers from '../Components/BurgerBlock/Burgers'
 import SceletonBurger from '../Components/BurgerBlock/SceletonBurger'
+import { fetchBurger } from '../redux/burgerSlice'
 
 type BurgersType = {
   id: number
@@ -20,10 +21,14 @@ type BurgersType = {
 const Home: FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Бургеры')
 
+  useEffect(() => {
+    dispatch(fetchBurger({ category: activeCategory }))
+  }, [activeCategory])
+
+  const dispatch = useDispatch<AppDispatch>()
+
   const { categoryId } = useSelector((state: RootState) => state.filterSlice)
   const { items, status } = useSelector((state: RootState) => state.burgerSlice)
-
-  const dispatch = useDispatch()
 
   const setCategory = (item: string, index: number) => {
     dispatch(setCategoryId(index))

@@ -15,9 +15,7 @@ type BurgerType = {
 }
 
 const Burgers: FC<BurgerType> = ({ id, desc, title, name, price, photo }) => {
-  const { items, totalPrice } = useSelector(
-    (state: RootState) => state.cartSlice
-  )
+  const { items } = useSelector((state: RootState) => state.cartSlice)
   const dispatch = useDispatch()
 
   const getitemsCount = items.find((item) => item.id === id)
@@ -34,6 +32,7 @@ const Burgers: FC<BurgerType> = ({ id, desc, title, name, price, photo }) => {
     }
     dispatch(addItem(item))
   }
+
   return (
     <div className={s.burger_block_wrapper}>
       <div className={s.burger_block}>

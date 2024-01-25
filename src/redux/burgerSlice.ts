@@ -16,8 +16,6 @@ type ItemsType = {
 }
 
 export interface CounterState {
-  value: 0
-  incrementAmount: number
   items: ItemsType[]
   status: string
 }
@@ -25,19 +23,19 @@ export interface CounterState {
 const initialState: CounterState = {
   items: [],
   status: 'loading',
-  value: 0,
-  incrementAmount: 1,
 }
 
-export const fetchBurger = createAsyncThunk('burger/fetchBurger', async () => {
-  // const { category } = params
-  // console.log(category)
-  const { data } = await axios.get(
-    `https://65a92a6b219bfa371868a40d.mockapi.io/items?search=Бургеры
+export const fetchBurger = createAsyncThunk(
+  'burger/fetchBurger',
+  async (params: FetchByrgersArgs) => {
+    const { category } = params
+    const { data } = await axios.get(
+      `https://65a92a6b219bfa371868a40d.mockapi.io/items?search=${category}
     `
-  )
-  return data
-})
+    )
+    return data
+  }
+)
 
 export const burgerSlice = createSlice({
   name: 'burger',

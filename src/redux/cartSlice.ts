@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
       }
 
       state.totalPrice = state.items.reduce((acc, c) => {
-        return acc * c.count + c.price
+        return c.count * c.price + acc
       }, 0)
 
       state.totalCount = state.items.reduce((acc, c) => {
