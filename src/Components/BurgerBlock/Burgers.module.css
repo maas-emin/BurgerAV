@@ -28,18 +28,6 @@
   flex-direction: column;
   padding: 0px;
 }
-/* ul {
-  display: flex;
-  flex: 1;
-}
-
-li {
-  padding: 8px;
-  flex: 1;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-} */
 
 .burger_block__bottom {
   display: flex;
@@ -58,29 +46,32 @@ li {
 .button_button__outline {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 8px 0;
-  border-radius: 10px;
-  width: 102px;
-  cursor: pointer;
-}
-
-.button_button__outline:hover {
-  background-color: rgb(186, 90, 22);
-  color: #f3f3f3;
-}
-
-.svg {
-  fill: rgb(82, 82, 82);
+  justify-content: space-around;
+  width: 142px;
 }
 
 .countButton {
+  margin: 0;
+}
+
+.FaMinusReact {
+  width: 30px;
+  height: 25px;
+  background-color: #bcbcbc;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  background-color: rgb(101, 53, 53);
-  border-radius: 50%;
-  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.FaPlusReact {
+  width: 30px;
+  height: 25px;
+  background-color: #bcbcbc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
 }

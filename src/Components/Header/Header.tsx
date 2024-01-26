@@ -7,6 +7,8 @@ const Header: FC = () => {
   const { totalPrice, totalCount } = useSelector(
     (state: RootState) => state.cartSlice
   )
+
+  console.log(totalCount)
   return (
     <>
       <div className={s.header}>

@@ -6,8 +6,11 @@ import { AppDispatch, RootState } from '../redux/store/burgerStore'
 import { setCategoryId } from '../redux/filterSlice'
 import s from './Home.module.css'
 import Burgers from '../Components/BurgerBlock/Burgers'
-import SceletonBurger from '../Components/BurgerBlock/SceletonBurger'
+import SceletonBurger from '../Components/Sceleton/SceletonBurger'
+import SceletonSushi from '../Components/Sceleton/SceletonSushi'
+import SceletonDrink from '../Components/Sceleton/SceletonDrink'
 import { fetchBurger } from '../redux/burgerSlice'
+import NotFound from './NotFound/NotFound'
 
 type BurgersType = {
   id: number
@@ -35,8 +38,14 @@ const Home: FC = () => {
     setActiveCategory(item)
   }
 
-  const scletons = [...new Array(5)].map((_, index) => {
-    return <SceletonBurger key={index} />
+  const scletons = [...new Array(8)].map((_, index) => {
+    if (activeCategory === 'Бургеры') {
+      return <SceletonBurger key={index} />
+    } else if (activeCategory === 'Суши') {
+      return <SceletonSushi key={index} />
+    } else if (activeCategory === 'Напитки') {
+      return <SceletonDrink key={index} />
+    }
   })
 
   const burgers = items.map((item: BurgersType) => {
@@ -51,9 +60,7 @@ const Home: FC = () => {
         setCategory={(item: string, index: number) => setCategory(item, index)}
       />
       <h2 className={s.content__title}>{activeCategory}</h2>
-      {status === 'error' && (
-        <h2 className={s.h2}>ОШИБКА: провертье подключение к интернету</h2>
-      )}
+      {status === 'error' && <NotFound />}
       <div className={s.content__items}>
         {status === 'loading' ? scletons : burgers}
       </div>
