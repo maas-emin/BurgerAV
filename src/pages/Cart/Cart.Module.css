@@ -1,0 +1,88 @@
+.container__cart {
+  display: flex;
+}
+
+.cart {
+  width: 1400px;
+  background-color: #fff;
+}
+
+.cart__top {
+  display: flex;
+  justify-content: center;
+}
+
+.cart__top_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.content__title {
+}
+
+.content__items {
+  display: flex;
+  justify-content: center;
+}
+
+.cart__clear {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.clearIcon {
+}
+
+.cart__bottom_buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.cart__bottom_buttons_block {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin: 30px 0;
+}
+.spanExit {
+  text-decoration: none;
+}
+
+.IoBackicon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  border: 1px solid #333;
+  border-radius: 50px;
+  color: #333;
+  cursor: pointer;
+}
+
+.IoBackicon:hover {
+  background-color: #282828;
+  color: #fff;
+}
+
+.pay_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 40px;
+  color: #fff;
+  border: 1px solid #333;
+  background-color: brown;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.pay_btn:hover {
+  background-color: rgb(151, 2, 2);
+}
