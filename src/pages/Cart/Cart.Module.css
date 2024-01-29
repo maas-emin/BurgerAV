@@ -53,6 +53,20 @@
   text-decoration: none;
 }
 
+.infoBlockCartRod {
+  display: flex;
+  justify-content: center;
+}
+
+.infoBlockCart {
+  height: 30px;
+  width: 800px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .IoBackicon {
   display: flex;
   align-items: center;

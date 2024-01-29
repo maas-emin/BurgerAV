@@ -5,6 +5,8 @@ import { CartSliceType, minusItem } from '../../redux/cartSlice'
 import { addItem } from '../../redux/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/burgerStore'
+import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 type BurgerType = {
   id: number
@@ -21,7 +23,7 @@ const Burgers: FC<BurgerType> = ({ id, desc, title, name, price, photo }) => {
 
   const getitemsCount = items.find((item) => item.id === id)
 
-  const onClickAdd = () => {
+  const onClickAdd = (): void => {
     const item: CartSliceType = {
       id,
       name,
@@ -41,7 +43,9 @@ const Burgers: FC<BurgerType> = ({ id, desc, title, name, price, photo }) => {
   return (
     <div className={s.burger_block_wrapper}>
       <div className={s.burger_block}>
-        <img className={s.burger_block__image} src={photo} alt="Pizza" />
+        <Link to={`/burger/${id}`}>
+          <img className={s.burger_block__image} src={photo} alt="Pizza" />
+        </Link>
         <h4 className={s.burger_block__title}>{title}</h4>
         <div className={s.burger_block__bottom}>
           <div className={s.burger_block__price}>{price} ₽</div>

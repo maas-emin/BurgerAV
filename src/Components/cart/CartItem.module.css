@@ -87,4 +87,57 @@ b {
 
 .button__circle {
   font-size: 25px;
+  cursor: pointer;
+}
+
+.buttonminus {
+  cursor: pointer;
+}
+
+.buttonplus {
+  cursor: pointer;
+}
+
+.cart {
+  background-color: #fff;
+  background-image: url(../../icon/7lww-Ez7uv8ZUXnxR6CPN-transformed.png);
+  background-size: 400px 380px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 600px;
+}
+
+.cartH2 {
+  margin: 0;
+}
+
+.IoBackicon_rod {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.IoBackicon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  border: 1px solid #333;
+  border-radius: 50px;
+  color: #333;
+  cursor: pointer;
+}
+
+.button_black {
+  text-decoration: none;
+}
+
+.icon_cart_Em {
+  margin-bottom: -3px;
+}
+
+.IoBackicon:hover {
+  background-color: #282828;
+  color: #fff;
 }

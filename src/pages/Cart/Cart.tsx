@@ -2,11 +2,13 @@ import React, { FC } from 'react'
 import { IoChevronBackSharp } from 'react-icons/io5'
 import Header from '../../Components/Header/Header'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/burgerStore'
 import CartItem from '../../Components/cart/CartItem'
 
 import s from './Cart.module.css'
+import CartEm from '../../Components/cart/CartEm'
+import { clearItem } from '../../redux/cartSlice'
 
 type StateCartSlice = {
   id: number
@@ -19,8 +21,23 @@ type StateCartSlice = {
 }
 
 const Cart: FC = () => {
-  const { items } = useSelector((state: RootState) => state.cartSlice)
-  console.log(items)
+  const { items, totalCount, totalPrice } = useSelector(
+    (state: RootState) => state.cartSlice
+  )
+
+  const dispatch = useDispatch()
+
+  if (!totalCount) {
+    return <CartEm />
+  }
+
+  const clearCart = () => {
+    const clearCart = window.confirm('Вы хотите очистить корзину?')
+    if (clearCart) {
+      dispatch(clearItem())
+    }
+  }
+
   return (
     <>
       <Header />
@@ -97,7 +114,9 @@ const Cart: FC = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className={s.clearIcon}>Очистить корзину</span>
+                <span className={s.clearIcon} onClick={clearCart}>
+                  Очистить корзину
+                </span>
               </div>
             </div>
           </div>
@@ -108,22 +127,23 @@ const Cart: FC = () => {
               })}
             </div>
           </div>
-          <div className="cart__bottom">
-            <div className="cart__bottom-details">
-              <span> {/* Всего пицц: <b>{totalCount} шт.</b>{' '} */}</span>
-              <span> {/* Сумма заказа: <b>{totalPrice} ₽</b>{' '} */}</span>
+
+          <div className={s.infoBlockCartRod}>
+            <div className={s.infoBlockCart}>
+              <div>Количество заказа: {totalCount} шт</div>
+              <div>Общая сумма заказа: {totalPrice} ₽</div>
             </div>
-            <div className={s.cart__bottom_buttons}>
-              <div className={s.cart__bottom_buttons_block}>
-                <Link to="/" className={s.spanExit}>
-                  <div className={s.IoBackicon}>
-                    <IoChevronBackSharp />
-                    <span>Вернуться назад</span>
-                  </div>
-                </Link>
-                <div className={s.pay_btn}>
-                  <span>Оплатить сейчас</span>
+          </div>
+          <div className={s.cart__bottom_buttons}>
+            <div className={s.cart__bottom_buttons_block}>
+              <Link to="/" className={s.spanExit}>
+                <div className={s.IoBackicon}>
+                  <IoChevronBackSharp />
+                  <span>Вернуться назад</span>
                 </div>
+              </Link>
+              <div className={s.pay_btn}>
+                <span>Оплатить сейчас</span>
               </div>
             </div>
           </div>
