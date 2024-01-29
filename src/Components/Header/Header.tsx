@@ -26,8 +26,10 @@ const Header: FC = () => {
               alt="Pizza logo"
             />
             <div>
-              <h1>BurgerAV</h1>
-              <p>самые вкусные бургеры AV</p>
+              <Link to="/" className={s.headerBurgerLogo}>
+                <h1>BurgerAV</h1>
+                <p>самые вкусные бургеры AV</p>
+              </Link>
             </div>
           </div>
           {location.pathname !== '/cart' && (

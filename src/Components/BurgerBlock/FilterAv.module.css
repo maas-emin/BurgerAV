@@ -1,0 +1,14 @@
+.FilterAv {
+  background-color: #fff;
+  height: 500px;
+}
+
+.filterAvImg {
+  width: 400px;
+  height: 400px;
+}
+
+.filterAvH1 {
+  padding-top: 50px;
+  margin: 0;
+}

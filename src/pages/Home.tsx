@@ -12,7 +12,6 @@ import SceletonSushi from '../Components/Sceleton/SceletonSushi'
 import SceletonDrink from '../Components/Sceleton/SceletonDrink'
 import { fetchBurger } from '../redux/burgerSlice'
 import NotFound from './NotFound/NotFound'
-import axios from 'axios'
 
 type BurgersType = {
   id: number
@@ -25,14 +24,6 @@ type BurgersType = {
 
 const Home: FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Бургеры')
-  const [burger, setBurger] = useState()
-
-  const er = async () => {
-    const { data } = await axios.get(
-      `https://65a92a6b219bfa371868a40d.mockapi.io/items?id=0`
-    )
-    return setBurger(data)
-  }
 
   useEffect(() => {
     dispatch(fetchBurger({ category: activeCategory }))
@@ -69,7 +60,6 @@ const Home: FC = () => {
         value={categoryId}
         setCategory={(item: string, index: number) => setCategory(item, index)}
       />
-
       <h2 className={s.content__title}>{activeCategory}</h2>
       {status === 'error' && <NotFound />}
       <div className={s.content__items}>
@@ -80,6 +70,3 @@ const Home: FC = () => {
 }
 
 export default Home
-function useParams() {
-  throw new Error('Function not implemented.')
-}
