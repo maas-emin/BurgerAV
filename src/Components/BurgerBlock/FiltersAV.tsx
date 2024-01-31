@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../Header/Header'
 import s from './FilterAv.module.css'
@@ -16,7 +16,7 @@ type FilterType = {
   photo: string
   price: number
 }
-const FiltersAV = () => {
+const FiltersAV: FC = () => {
   const [filterAv, setFilterAv] = useState<FilterType>()
   const params = useParams()
   console.log(filterAv)
