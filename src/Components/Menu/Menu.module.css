@@ -26,7 +26,60 @@
   list-style-type: none;
 }
 
-.CategoriesLi {
+.category_rod {
+  display: flex;
+  border: 1px solid #333;
+}
+
+.div_listPrice {
+  width: 160px;
+  border: 1px solid #333;
+}
+
+.ul_listPrice {
+  border: 1px solid #333;
+}
+
+/* s.categoriesLiPriceActive {
+  color: #cd0101;
+  display: flex;
+  text-align: center;
   list-style-type: none;
   cursor: pointer;
+}
+
+s.categoriesLiPriceNoActive {
+  color: #282828;
+  display: flex;
+  text-align: center;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.CategoriesLi {
+  display: flex;
+  text-align: center;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.CategoriesLiActiv {
+  color: #cd0101;
+  display: flex;
+  text-align: center;
+  list-style-type: none;
+  cursor: pointer;
+} */
+
+.PriceActive {
+  color: red;
+}
+
+.div_listReting {
+  width: 160px;
+  border: 1px solid #333;
+}
+
+.ul_listReting {
+  border: 1px solid #333;
 }

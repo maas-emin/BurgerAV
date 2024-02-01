@@ -1,12 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export enum SortPropertyEnum {
-  RETING_DESC = 'rating',
-  RETING_ASC = '-rating',
   TITLE_DESC = 'price',
   TITLE_ASC = '-price',
-  PRICE_DESC = 'title',
-  PRICE_ASC = '-title',
+  RATING_DESC = 'rating',
+  RATING_ASC = '-rating',
 }
 
 export type SortType = {
@@ -29,8 +27,8 @@ const initialState: CounterState = {
   search: '',
   pageCount: 1,
   sort: {
-    name: 'популярности',
-    sortCategories: SortPropertyEnum.PRICE_DESC,
+    name: 'цене',
+    sortCategories: SortPropertyEnum.TITLE_ASC,
   },
 }
 

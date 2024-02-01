@@ -38,12 +38,14 @@ const Home: FC = () => {
     const sortBy = sort.sortCategories.replace('-', '')
     const searchValue = search ? `&search=${search}` : ''
 
+    console.log(sortBy, order)
+
     dispatch(fetchBurger({ category, order, sortBy, searchValue, pageCount }))
   }
 
   useEffect(() => {
     addPizzas()
-  }, [activeCategory])
+  }, [activeCategory, sort.sortCategories])
 
   const setCategory = (item: string, index: number) => {
     dispatch(setCategoryId(index))

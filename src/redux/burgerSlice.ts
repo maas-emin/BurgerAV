@@ -32,9 +32,10 @@ const initialState: CounterState = {
 export const fetchBurger = createAsyncThunk(
   'burger/fetchBurger',
   async (params: FetchByrgersArgs) => {
-    const { category } = params
+    const { category, order } = params
     const { data } = await axios.get(
-      `https://65a92a6b219bfa371868a40d.mockapi.io/items?page=1&limit=5&filter=${category}
+      `https://65a92a6b219bfa371868a40d.mockapi.io/items?page=1&limit=20&filter=${category}&sortBy=price&order=${order}
+
     `
     )
     return data
