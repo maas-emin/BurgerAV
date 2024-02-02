@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export enum SortPropertyEnum {
   TITLE_DESC = 'price',
@@ -15,7 +15,6 @@ export type SortType = {
 export interface CounterState {
   categoryId: number
   search: string
-  pageCount: number
   sort: {
     name: string
     sortCategories: SortPropertyEnum
@@ -25,7 +24,6 @@ export interface CounterState {
 const initialState: CounterState = {
   categoryId: 0,
   search: '',
-  pageCount: 1,
   sort: {
     name: 'цене',
     sortCategories: SortPropertyEnum.TITLE_ASC,
@@ -38,13 +36,17 @@ export const filterSlice = createSlice({
   reducers: {
     setCategoryId: (state, action) => {
       state.categoryId = action.payload
+      state.search = ''
     },
     setSortType: (state, action) => {
       state.sort = action.payload
     },
+    setSearch: (state, action) => {
+      state.search = action.payload
+    },
   },
 })
 
-export const { setCategoryId, setSortType } = filterSlice.actions
+export const { setCategoryId, setSortType, setSearch } = filterSlice.actions
 
 export default filterSlice.reducer

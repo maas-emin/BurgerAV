@@ -26,26 +26,24 @@ type BurgersType = {
 const Home: FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Бургеры')
 
-  const { categoryId, sort, pageCount, search } = useSelector(
+  const { categoryId, sort, search } = useSelector(
     (state: RootState) => state.filterSlice
   )
   const { items, status } = useSelector((state: RootState) => state.burgerSlice)
   const dispatch = useDispatch<AppDispatch>()
 
   const addPizzas = () => {
-    const category = `${activeCategory}`
+    const category = activeCategory
     const order = sort.sortCategories.includes('-') ? 'asc' : 'desc'
     const sortBy = sort.sortCategories.replace('-', '')
     const searchValue = search ? `&search=${search}` : ''
 
-    console.log(sortBy, order)
-
-    dispatch(fetchBurger({ category, order, sortBy, searchValue, pageCount }))
+    dispatch(fetchBurger({ category, order, sortBy, searchValue }))
   }
 
   useEffect(() => {
     addPizzas()
-  }, [activeCategory, sort.sortCategories])
+  }, [activeCategory, sort.sortCategories, search])
 
   const setCategory = (item: string, index: number) => {
     dispatch(setCategoryId(index))

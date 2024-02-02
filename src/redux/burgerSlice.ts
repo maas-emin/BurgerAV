@@ -7,7 +7,6 @@ type FetchByrgersArgs = {
   sortBy: string
   order: string
   searchValue: string
-  pageCount: number
 }
 
 type ItemsType = {
@@ -32,17 +31,16 @@ const initialState: CounterState = {
 export const fetchBurger = createAsyncThunk(
   'burger/fetchBurger',
   async (params: FetchByrgersArgs) => {
-    const { category, order } = params
+    const { category, order, sortBy, searchValue } = params
     const { data } = await axios.get(
-      `https://65a92a6b219bfa371868a40d.mockapi.io/items?page=1&limit=20&filter=${category}&sortBy=price&order=${order}
+      `https://65a92a6b219bfa371868a40d.mockapi.io/items?page=1&limit=20&filter=${category}&sortBy=${sortBy}&order=${order}${searchValue}
 
     `
     )
+
     return data
   }
 )
-
-//https://65a92a6b219bfa371868a40d.mockapi.io/items?page=1&limit=4
 
 export const burgerSlice = createSlice({
   name: 'burger',
