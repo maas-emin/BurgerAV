@@ -11,8 +11,11 @@ type FetchByrgersArgs = {
 
 type ItemsType = {
   id: number
-  title: string
+  category: number
+  rating: number
   name: string
+  sort: string
+  title: string
   desc: string
   price: number
   photo: string

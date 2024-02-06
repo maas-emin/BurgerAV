@@ -8,7 +8,7 @@ import s from './Categories.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/burgerStore'
 import { IoIosSearch } from 'react-icons/io'
-import { GoMoveToTop } from 'react-icons/go'
+import { setSortSushi, setSortDrinks } from '../../redux/filterSlice'
 
 type SortList = {
   name: string
@@ -25,13 +25,34 @@ export const listReting: SortList[] = [
   { name: 'Рейтинг+', sortCategories: SortPropertyEnum.RATING_DESC },
 ]
 
-const Categories: FC = () => {
+type PropsCategory = {
+  value: string
+  categoriSushi: string[]
+  categoriesDrinks: string[]
+}
+
+const Categories: FC<PropsCategory> = ({
+  value,
+  categoriSushi,
+  categoriesDrinks,
+}) => {
   const [inputValue, setInputValue] = useState<string>()
-  const { sort } = useSelector((state: RootState) => state.filterSlice)
+  const { sort, sortSushi, sortDrinks } = useSelector(
+    (state: RootState) => state.filterSlice
+  )
+
   const dispatch = useDispatch()
 
   const onClickListItem = (item: SortList) => {
     dispatch(setSortType(item))
+  }
+
+  const onClickSushiSort = (item: string) => {
+    dispatch(setSortSushi(item))
+  }
+
+  const onClickDrinksSort = (item: string) => {
+    dispatch(setSortDrinks(item))
   }
 
   const onHeandleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -49,14 +70,13 @@ const Categories: FC = () => {
 
   return (
     <div>
-      <h2>Сортировка</h2>
       <div className={s.category_rod}>
         <div className={s.categories_twoBlock}>
           <div className={s.div_listPrice_rod}>
             <div className={s.div_listPrice}>
               <div className={s.div_span_rod_price}>
                 <div className={s.div_span}>
-                  <span>по цене</span>
+                  <span>По Цене</span>
                 </div>
               </div>
               <div className={s.ul_listPrice}>
@@ -82,7 +102,7 @@ const Categories: FC = () => {
             <div className={s.div_listReting}>
               <div className={s.div_span_rod_rating}>
                 <div className={s.div_span}>
-                  <span className={s.span_rating}>по Райтингу</span>
+                  <span className={s.span_rating}>По Райтингу</span>
                 </div>
               </div>
               <div className={s.ul_listReting}>
@@ -104,6 +124,62 @@ const Categories: FC = () => {
               </div>
             </div>
           </div>
+          {value === 'Суши' && (
+            <div className={s.div_listReting_rod}>
+              <div className={s.div_listReting}>
+                <div className={s.div_span_rod_rating}>
+                  <div className={s.div_span}>
+                    <span className={s.span_rating}>Суши</span>
+                  </div>
+                </div>
+                <div className={s.ul_listReting}>
+                  {categoriSushi.map((item, index) => {
+                    return (
+                      <li
+                        className={
+                          item === sortSushi
+                            ? s.liPriceActive
+                            : s.liNoPriceActiv
+                        }
+                        key={index}
+                        onClick={() => onClickSushiSort(item)}
+                      >
+                        {item}
+                      </li>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+          {value === 'Напитки' && (
+            <div className={s.div_listReting_rod}>
+              <div className={s.div_listReting}>
+                <div className={s.div_span_rod_rating}>
+                  <div className={s.div_span}>
+                    <span className={s.span_rating}>Суши</span>
+                  </div>
+                </div>
+                <div className={s.ul_listReting}>
+                  {categoriesDrinks.map((item, index) => {
+                    return (
+                      <li
+                        className={
+                          item === sortDrinks
+                            ? s.liPriceActive
+                            : s.liNoPriceActiv
+                        }
+                        key={index}
+                        onClick={() => onClickDrinksSort(item)}
+                      >
+                        {item}
+                      </li>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div className={s.categories_input}>
           <div>

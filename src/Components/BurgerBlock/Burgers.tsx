@@ -10,8 +10,11 @@ import { Link } from 'react-router-dom'
 
 type BurgerType = {
   id: number
-  title: string
+  category: number
+  rating: number
   name: string
+  sort: string
+  title: string
   desc: string
   price: number
   photo: string

@@ -1,19 +1,22 @@
 .category_rod {
   display: flex;
-  justify-content: space-around;
-  border: 1px solid #333;
+  justify-content: space-between;
+  border-bottom: 1px solid #f6f6f6;
+  border-top: 1px solid #f6f6f6;
 }
 
 .categories_twoBlock {
+  margin-left: 22px;
   display: flex;
 }
 
 .div_listPrice_rod {
+  margin-right: 40px;
   width: 120px;
 }
 
 .div_listPrice {
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   width: 120px;
 }
 
@@ -23,18 +26,23 @@
 }
 
 .ul_listPrice {
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
 }
 
 .liNoPriceActiv {
+  /* border: 1px solid #333; */
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.liNoPriceActiv:hover {
   list-style-type: none;
   cursor: pointer;
 }
 
 .liPriceActive {
-  /* display: flex;
-  justify-content: center; */
   border: 1px solid #333;
+  border-radius: 8px;
   background-color: #282828;
   list-style-type: none;
   color: red;
@@ -42,12 +50,13 @@
 }
 
 .div_listReting_rod {
+  margin-right: 40px;
   display: flex;
 }
 
 .div_listReting {
-  border: 1px solid #333;
-  width: 160px;
+  /* border: 1px solid #333; */
+  width: 135px;
 }
 
 .div_span_rod_rating {
@@ -68,10 +77,11 @@
 }
 
 .ul_listReting {
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
 }
 
 /* //////// */
+
 .categories_input {
   display: flex;
   align-items: center;

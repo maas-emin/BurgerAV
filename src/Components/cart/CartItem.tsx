@@ -46,7 +46,10 @@ const CartItem: FC<CartItemType> = ({
   }
 
   const onClickRemove = () => {
-    dispatch(removeItem(id))
+    const remove = window.confirm('Вы точно хотите удалить данную позицию ?')
+    if (remove) {
+      dispatch(removeItem(id))
+    }
   }
 
   return (

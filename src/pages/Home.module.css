@@ -14,8 +14,32 @@
 .content__title {
   font-weight: 800;
   font-size: 38px;
-  margin-top: 60px;
+  padding-top: 20px;
+  margin-top: 0;
   margin-bottom: 50px;
   background-color: #fff;
   border-top: 1px solid #f6f6f6;
+}
+
+.button_categories {
+  font-size: 18px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.span_categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sort_icons {
+  margin-left: 8px;
+}
+
+.button_categories:hover {
+  background-color: #282828;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
 }
