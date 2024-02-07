@@ -59,9 +59,9 @@ const Home: FC = () => {
       sortDrinks !== 'Все' && activeCategory === 'Напитки'
         ? `&search=${sortDrinks}`
         : ''
-    const er = activeCategory === ''
+    const er = activeCategory === 'Суши' ? searchSortSushi : searchSortDrinks
 
-    const searchValue = search ? `&search=${search}` : searchSortDrinks
+    const searchValue = search ? `&search=${search}` : er
 
     dispatch(fetchBurger({ category, order, sortBy, searchValue }))
   }

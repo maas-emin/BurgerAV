@@ -30,9 +30,11 @@
 }
 
 .liNoPriceActiv {
-  /* border: 1px solid #333; */
   list-style-type: none;
   cursor: pointer;
+  font-family: PTSansSort;
+  font-size: 17px;
+  letter-spacing: 0;
 }
 
 .liNoPriceActiv:hover {
@@ -45,8 +47,11 @@
   border-radius: 8px;
   background-color: #282828;
   list-style-type: none;
-  color: red;
+  color: rgb(194, 0, 0);
   cursor: pointer;
+  font-family: PTSansSort;
+  font-size: 17px;
+  letter-spacing: 0;
 }
 
 .div_listReting_rod {
@@ -71,12 +76,15 @@
   background-color: #282828;
   color: #fff;
   width: 120px;
+  font-family: PTSansSort;
+  font-size: 15px;
 }
 
 .span_rating {
 }
 
 .ul_listReting {
+  width: 140px;
   /* border: 1px solid #333; */
 }
 
@@ -86,10 +94,15 @@
   display: flex;
   align-items: center;
   width: 360px;
+  margin-right: 22px;
 }
 
 .input_span {
   margin-right: 15px;
+  font-family: PTSansSort;
+  font-size: 17px;
+  letter-spacing: 0;
+  border-bottom: 2px solid #f6f6f6;
 }
 
 .input {
@@ -101,6 +114,8 @@
 
 .input::placeholder {
   padding-left: 20px;
+  font-family: PTSansSearchPlaceholder;
+  font-size: 16px;
 }
 
 .search_icon {

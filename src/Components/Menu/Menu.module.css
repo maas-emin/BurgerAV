@@ -13,6 +13,8 @@
   cursor: pointer;
   transition: background-color 0.1s ease-in-out;
   list-style-type: none;
+  font-family: PTSansMenu;
+  letter-spacing: 0.8px;
 }
 .categoryActive {
   background-color: #282828;
@@ -24,6 +26,8 @@
   cursor: pointer;
   transition: background-color 0.1s ease-in-out;
   list-style-type: none;
+  font-family: PTSansMenu;
+  letter-spacing: 0.8px;
 }
 
 .category_rod {

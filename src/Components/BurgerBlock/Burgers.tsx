@@ -47,20 +47,35 @@ const Burgers: FC<BurgerType> = ({ id, desc, title, name, price, photo }) => {
     <div className={s.burger_block_wrapper}>
       <div className={s.burger_block}>
         <Link to={`/burger/${id}`}>
-          <img className={s.burger_block__image} src={photo} alt="Pizza" />
+          <img className={s.burger_block__image} src={photo} alt="Burgers" />
         </Link>
-        <h4 className={s.burger_block__title}>{title}</h4>
-        <div className={s.burger_block__bottom}>
-          <div className={s.burger_block__price}>{price} ₽</div>
-          <div className={s.button_button__outline}>
-            <div className={s.FaMinusReact} onClick={onClickRemove}>
-              <FaMinus />
+        <div className={s.block_info}>
+          <h4
+            className={s.burger_block__title}
+            style={!getitemsCount?.count ? {} : { color: '#B80000' }}
+          >
+            {title}
+          </h4>
+          <div className={s.burger_block__bottom}>
+            <div
+              className={s.burger_block__price}
+              style={!getitemsCount?.count ? {} : { color: '#B80000' }}
+            >
+              {price} ₽
             </div>
-            <h3 className={s.countButton}>
-              {!getitemsCount?.count ? 0 : getitemsCount.count}
-            </h3>{' '}
-            <div className={s.FaPlusReact} onClick={onClickAdd}>
-              <FaPlus />
+            <div className={s.button_button__outline}>
+              <div className={s.FaMinusReact} onClick={onClickRemove}>
+                <FaMinus />
+              </div>
+              <h3
+                className={s.countButton}
+                style={!getitemsCount?.count ? {} : { color: '#B80000' }}
+              >
+                {!getitemsCount?.count ? 0 : getitemsCount.count}
+              </h3>
+              <div className={s.FaPlusReact} onClick={onClickAdd}>
+                <FaPlus />
+              </div>
             </div>
           </div>
         </div>

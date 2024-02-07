@@ -157,7 +157,7 @@ const Categories: FC<PropsCategory> = ({
               <div className={s.div_listReting}>
                 <div className={s.div_span_rod_rating}>
                   <div className={s.div_span}>
-                    <span className={s.span_rating}>Суши</span>
+                    <span className={s.span_rating}>Напитки</span>
                   </div>
                 </div>
                 <div className={s.ul_listReting}>

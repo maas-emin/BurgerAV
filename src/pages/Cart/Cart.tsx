@@ -130,8 +130,12 @@ const Cart: FC = () => {
 
           <div className={s.infoBlockCartRod}>
             <div className={s.infoBlockCart}>
-              <div>Количество заказа: {totalCount} шт</div>
-              <div>Общая сумма заказа: {totalPrice} ₽</div>
+              <div>
+                Количество заказа: <b>{totalCount}шт</b>
+              </div>
+              <div className={s.div_totalPrice}>
+                Общая сумма заказа:<b>{totalPrice}₽</b>
+              </div>
             </div>
           </div>
           <div className={s.cart__bottom_buttons}>

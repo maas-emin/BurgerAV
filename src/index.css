@@ -12,3 +12,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* @font-face {
+  font-family: PTSans;
+  src: url(../../../public/PTSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: PTSansBold;
+  src: url(../../../public/PTSans-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: SansBoldItalic;
+  src: url(../../../public/Fonts/Oswald-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: SansBoldItalich;
+  src: url(../../../public/Fonts/Oswald-Bold.ttf);
+} */

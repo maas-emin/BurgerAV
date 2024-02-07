@@ -1,3 +1,38 @@
+@font-face {
+  font-family: PTSans;
+  src: url(../public/fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: PTSansMenu;
+  src: url(../public/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: PTSansSort;
+  src: url(../public/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: PTSansSearchPlaceholder;
+  src: url(../public/fonts/Roboto-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: PTSansContentTitle;
+  src: url(../public/fonts/Roboto-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: PTSansButtonCategories;
+  src: url(../public/fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+  font-family: PTSansBurgerBlockTitle;
+  src: url(../public/fonts/Roboto-Light.ttf);
+}
+
 .App {
   text-align: center;
   width: 1400px;

@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   width: 800px;
-  border-top: 1px solid #887575;
+  /* border-bottom: 1px solid #887575; */
+  border-bottom: 4px solid #f6f6f6;
   padding-top: 30px 0;
   margin-top: 30px 0;
 }
@@ -22,12 +23,14 @@
 }
 
 .cart__item_info {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100px;
-  border: 1px solid #333; */
+  font-family: PTSansBurgerBlockTitle;
+  font-size: 18px;
 }
+
+.cartitenCount {
+  font-family: PTSansBurgerBlockTitle;
+}
+
 img {
   width: 80px;
   height: 80px;
@@ -70,12 +73,12 @@ b {
   align-items: center;
   justify-content: center;
   width: 33%;
+  font-family: PTSansBurgerBlockTitle;
 }
 
 .cart__item_price_b_con {
-  font-weight: bold;
   font-size: 22px;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
 }
 
 .cart__item_remove {
@@ -109,6 +112,12 @@ b {
 
 .cartH2 {
   margin: 0;
+  font-size: 28px;
+  font-family: PTSansBurgerBlockTitle;
+}
+
+.p_cartEm {
+  font-family: PTSansContentTitle;
 }
 
 .IoBackicon_rod {
@@ -127,6 +136,7 @@ b {
   border-radius: 50px;
   color: #333;
   cursor: pointer;
+  font-family: PTSansBurgerBlockTitle;
 }
 
 .button_black {
@@ -134,6 +144,8 @@ b {
 }
 
 .icon_cart_Em {
+  position: relative;
+  bottom: 2px;
   margin-bottom: -3px;
 }
 

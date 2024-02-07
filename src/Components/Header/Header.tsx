@@ -3,6 +3,7 @@ import s from './Header.module.css'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store/burgerStore'
 import { Link, useLocation } from 'react-router-dom'
+import Logo from '../../icon/img/5Chvwe0CDJNQ9mEQ.jpg'
 
 const Header: FC = () => {
   const { totalPrice, totalCount } = useSelector(
@@ -19,17 +20,12 @@ const Header: FC = () => {
           style={location.pathname === '/cart' ? { marginRight: '50px' } : {}}
         >
           <div className={s.header__logo}>
-            <img
-              width="48"
-              height="48"
-              src="https://img.icons8.com/color/48/hamburger.png"
-              alt="Pizza logo"
-            />
-            <div>
+            <img className={s.img_logo} src={Logo} alt="Pizza logo" />
+            <div className={s.name_burgerAV}>
               <Link to="/" className={s.headerBurgerLogo}>
-                <h1>BurgerAV</h1>
-                <p>самые вкусные бургеры AV</p>
+                <h1 className={s.name}>BurgerAV</h1>
               </Link>
+              <p className={s.headerBurgerLogo}>самые вкусные бургеры AV</p>
             </div>
           </div>
           {location.pathname !== '/cart' && (

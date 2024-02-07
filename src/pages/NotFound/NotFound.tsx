@@ -6,11 +6,9 @@ const NotFound: React.FC = () => {
     <div className={s.root}>
       <h1>
         <span>&#129300;</span>
-        <h1>Ничего не найдено</h1>
+        <h1 className={s.h1_cart_not_found}>Ничего не найдено</h1>
       </h1>
-      <p className={s.description}>
-        Данная страница отсутсвует в нашем интернет-магазине
-      </p>
+      <p className={s.description}>Данная страница отсутсвует в Burger_AV</p>
     </div>
   )
 }

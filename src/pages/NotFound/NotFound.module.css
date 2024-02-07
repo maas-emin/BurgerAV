@@ -1,12 +1,16 @@
 .root {
-  padding: 100px;
+  padding: 50px;
   text-align: center;
-
   span {
-    font-size: 78px;
+    font-size: 38px;
   }
+}
+
+.h1_cart_not_found {
+  font-family: PTSansBurgerBlockTitle;
 }
 
 .description {
   font-size: 32px;
+  font-family: PTSansContentTitle;
 }

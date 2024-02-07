@@ -66,7 +66,7 @@ const CartItem: FC<CartItemType> = ({
         <div onClick={onClickMinus} className={s.cart__item_count_minus}>
           <CiCircleMinus className={s.buttonminus} />
         </div>
-        <b>{count}</b>
+        <b className={s.cartitenCount}>{count}</b>
         <div onClick={onClickPlus} className={s.cart__item_count_plus}>
           <CiCirclePlus className={s.buttonplus} />
         </div>
